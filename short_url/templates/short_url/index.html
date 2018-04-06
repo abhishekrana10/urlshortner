@@ -1,24 +1,32 @@
+<!DOCTYPE html>
 <html>
     <head>
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
         <form Action="{% url 'short_url:index' %}" method="post">
             {%csrf_token%}
             Enter url:<br>
-            <input type="text" name="original_url" id="urlinput" size="50"><br>
+            <input name="original_url" id="urlinput" size="50" value="{{long_url}}" type="url" required><br>
             <br>
             <br>
             Short URL expires:<br>
-            <input type="radio" name="validity" value=1 id="one_m"> After 1 month<br>
+            <input type="radio" name="validity" value=1 id="one_m" required> After 1 month<br>
             <input type="radio" name="validity" value=6 id="six_m"> After 6 months<br>
             <input type="radio" name="validity" value=12 id="one_y"> After 1 year<br>
             <input type="radio" name="validity" value=-1 id="inf"> Never Expires<br>
             <br>
             <input type="submit" value="Submit"><br>
         </form>
+
+        <br>
+        {{genrated_url}}
+
+
+
     </body>
 </html>
 
-<br>
-{{genrated_url}}
+

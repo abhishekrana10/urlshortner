@@ -5,6 +5,7 @@ class url_mapping(models.Model):
     short_url = models.CharField(max_length=8, primary_key=True)
     long_url = models.CharField(max_length=200)
     ttl = models.IntegerField()
+    added = models.IntegerField()
 
 
 class Short_url_info(models.Model):
