@@ -11,9 +11,12 @@ def index(request):
     if request.method == "GET":
         return render(request, 'short_url/index.html')
     else:
+
         post_data = request.POST.copy()
+
         print(post_data)
         data = dict()
+        data["is_response"] = True
         data["long_url"]=post_data["original_url"]
         data["validity"] = post_data["validity"]
         dt = datetime.datetime.today()

@@ -3,20 +3,42 @@
 {% if ttl == -1 %}
     <head>
         <meta http-equiv="refresh" content="5;url={{long_url}}" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <style>
-            div{
-                border: 1px solid green ;
-                width: 600px;
-                height: 400px;
+        #cent{
+            text-align: center;
+        }
+        hr{
+            border-width:6px;
+        }
+
+            h3{
+                display: inline;
             }
         </style>
+        <script>
+               setInterval(function () {
+                    var $badge = $('#time');
+                    var value = parseInt($badge.html());
+                    value--;
+                    $badge.html(value);
+               }, 1000);
+        </script>
     </head>
-    <body>
-        <h4>redirecting in 5 seconds...</h4><br>
-        <a href="">skip</a><br>
-        <div>
-            This text is enclosed in a box.
+    <div class="col-xs-12 " style="height:150px;"></div>
+    <div class="col-lg-4" >
+    </div>
+    <div class="col-lg-4 " id="cent">
+    redirecting in <h3 id="time">5</h3> seconds...<br>
+        <hr>
+        <a href="{{long_url}}">skip</a><br>
+        <hr ><br>
+            This text is advertisement.
         </div>
+    <div class="col-lg-4">
+    </div>
 
     </body>
 {% else %}
