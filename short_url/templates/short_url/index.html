@@ -1,3 +1,4 @@
+{% extends "short_url/headfoot.html" %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -36,6 +37,7 @@
 
     </head>
     <body>
+    {% block content %}
         <form Action="{% url 'short_url:index' %}" method="post">
             {%csrf_token%}
             <div class="col-xs-12" style="height:150px;"></div>
@@ -72,6 +74,7 @@
             </div>
             {% endif %}
         </form>
+    {% endblock %}
     </body>
 </html>
 
