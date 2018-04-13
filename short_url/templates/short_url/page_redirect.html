@@ -1,58 +1,37 @@
 {% extends "short_url/headfoot.html" %}
-<!DOCTYPE html>
-<html lang="en">
-{% if ttl == -1 %}
-<head>
-    <meta http-equiv="refresh" content="9;url={{long_url}}"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style>
-        #cent{
-            text-align: center;
-        }
-        hr{
-            border-width:6px;
-        }
 
-            h3{
-                display: inline;
-            }
 
-    </style>
-    <script>
-               setInterval(function () {
-                    var $badge = $('#time');
-                    var value = parseInt($badge.html());
-                    value--;
-                    $badge.html(value);
-               }, 1000);
+{% block t_r%}
+        {% if ttl == -1 %}
+            <meta http-equiv="refresh" content="9;url={{long_url}}"/>
+        {% else %}
+            <meta http-equiv="refresh" content="0;url={{long_url}}"/>
+        {% endif %}
+{% endblock t_r%}
 
-    </script>
-</head>
-<body>
+
 {% block content %}
-<div class="col-xs-12 " style="height:150px;"></div>
-<div class="col-lg-4">
+<div class="col-md-12 " style="height:150px;"></div>
+<div class="col-md-4">
 </div>
-<div class="col-lg-4 " id="cent">
-    redirecting in <h3 id="time">10</h3> seconds...<br>
-    <hr>
+<div class="col-md-4 " style="text-align: center;">
+    {% if ttl == -1 %}
+    redirecting in <h3 id="time" style="display:inline;">10</h3> seconds...<br>
+    <hr style="border-width:6px;">
     <a href="{{long_url}}">skip</a><br>
-    <hr>
+    <hr style="border-width:6px;">
+    {% else %}
+    <hr style="border-width:6px;">
+    Redirecting...<br>
+    <hr style="border-width:6px;">
+    {% endif %}
     <br>
-    This text is advertisement.
 </div>
-<div class="col-lg-4">
+<div class="col-md-4">
+</div>
+<br>
+<div class="col-md-12 " style= "text-align:center;">
+    {% include "short_url/advertise.html"%}
 </div>
 {% endblock %}
-</body>
-{% else %}
-<head>
-    <meta http-equiv="refresh" content="0;url={{long_url}}"/>
-</head>
-<body>
 
-</body>
-{% endif %}
-</html>

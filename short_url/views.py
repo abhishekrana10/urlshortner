@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+#from django.forms import ModelForm
 import string
 import random
 from short_url.models import url_mapping, deleted_url
@@ -13,7 +14,7 @@ def index(request):
     else:
 
         post_data = request.POST.copy()
-
+        #form = recapForm(post_data, request=request)
         print(post_data)
         data = dict()
         data["is_response"] = True
@@ -66,5 +67,9 @@ def page_redirect(request, code):
                 flag["value"] = 0
                 return render(request, 'short_url/delete_redirect.html', flag)
 
+
+def error_404(request, exception):
+    data = {"name": "ThePythonDjango.com"}
+    return render(request,'short_url/error_404.html', data)
 
 

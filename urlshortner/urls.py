@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
+from django.conf.urls import handler404
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'', include('short_url.urls', namespace="short_url")),
     #re_path(r'(?P<code>[\w]{8})/', include('url_decode.urls', namespace="url_decode"))
 ]
+
+handler404 = 'short_url.views.error_404'

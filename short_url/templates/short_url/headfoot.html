@@ -1,38 +1,27 @@
+{% load static %}
+
 <html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<style type="text/css">
-body {
-	background-color: white;
-	height: 100%;
-	width: 100%;
-}
-#fixedheader {
-	position:fixed;
-	top:0px;
-	left:0px;
-	width:100%;
-	color:#CCC;
-	background:lightgray;
-	height:100px;
-}
-#fixedfooter {
-	position:fixed;
-	bottom:0px;
-	left:0px;
-	width:100%;
-	color:#CCC;
-	background:lightgray;
-	height:50px;
-}
-</style>
+    <link rel="stylesheet" type="text/css" href="{% static "short_url/css/urlshort.css" %}">
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    {% block t_r %}
+    {% endblock t_r %}
+    <script src= "{% static "short_url/js/urlshort.js" %}"></script>
+
 </head>
-<body>
-<div id="fixedheader">Top div content</div>
-{% block content %}
-{% endblock %}
-<div id="fixedfooter">Bottom div content</div>
+
+
+<body id="bodyheadfoot">
+    <div id="fixedheader">Top div content
+    </div>
+    {% block content %}
+    {% endblock %}
+    <div id="fixedfooter">Bottom div content
+    </div>
 </body>
+
 </html>
