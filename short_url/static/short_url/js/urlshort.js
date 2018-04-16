@@ -2,6 +2,12 @@ setInterval(function () {
                     var $badge = $('#time');
                     var value = parseInt($badge.html());
                     value--;
+                    if(value == 0){
+                    var x=document.getElementById("before_timeout");
+                    var y=document.getElementById("after_timeout");
+                    x.style.display="none";
+                    y.style.display="block";
+                    }
                     $badge.html(value);
                }, 1000);
 

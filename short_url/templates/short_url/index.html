@@ -1,5 +1,9 @@
 {% extends "short_url/headfoot.html" %}
 
+{% block head_content %}
+    {{block.super}}
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+{% endblock head_content %}
 
 {% block content %}
 <form Action="{% url 'short_url:index' %}" method="post">
@@ -26,7 +30,7 @@
             <input type="radio" name="validity" value=12 id="one_y"> After 1 year
         </label>
         <label class="radio-inline">
-            <input type="radio" name="validity" value=-1 id="inf"> Never Expires
+            <input type="radio" name="validity" value=-1 id="inf" checked="checked"> Never Expires
         </label>
         <br>
         <br>
@@ -41,7 +45,9 @@
 
         <button type="button" name="copy_link" class="btn center-block" onclick="copyToClipboard('#c1'); selectText('c1'); ">
             Copy Link
+
         </button>
+        {{site_name}}
 
     </div>
 

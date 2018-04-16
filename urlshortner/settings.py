@@ -16,9 +16,6 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-"""STATICFILES_DIRS = [
-     os.path.join(BASE_DIR, "static"),
-]"""
 
 
 # Quick-start development settings - unsuitable for production
@@ -31,6 +28,8 @@ SECRET_KEY = '+4&mm+1yq&+yf0mfa+h(xl8c*n6$9%nh7w_p3w*&alge7^gb_@'
 DEBUG = True
 
 ALLOWED_HOSTS = ["localhost"]
+
+SITE_NAME = "cheekURL"
 
 
 # Application definition
@@ -68,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'short_url.context_process.site_name',
             ],
         },
     },

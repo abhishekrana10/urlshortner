@@ -16,10 +16,17 @@
 </div>
 <div class="col-md-4 " style="text-align: center;">
     {% if ttl == -1 %}
+    <div id="before_timeout" name="before_timeout">
     redirecting in <h3 id="time" style="display:inline;">10</h3> seconds...<br>
     <hr style="border-width:6px;">
     <a href="{{long_url}}">skip</a><br>
     <hr style="border-width:6px;">
+    </div>
+    <div id="after_timeout" name="after_timeout" style="display: none;">
+    <hr style="border-width:6px;">
+    Redirecting...<br>
+    <hr style="border-width:6px;">
+    </div>
     {% else %}
     <hr style="border-width:6px;">
     Redirecting...<br>
