@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 #from django.forms import ModelForm
+from .recap import recapForm
 import string
 import random
 from short_url.models import url_mapping, deleted_url
@@ -14,7 +15,7 @@ def index(request):
     else:
 
         post_data = request.POST.copy()
-        #form = recapForm(post_data, request=request)
+        form = recapForm(post_data, request=request)
         print(post_data)
         data = dict()
         data["is_response"] = True
