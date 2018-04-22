@@ -8,10 +8,10 @@
 {% block content %}
 <form Action="{% url 'short_url:index' %}" method="post">
     {%csrf_token%}
-    <div class="col-xs-12" style="height:150px;">
-    </div>
+
 
     <div class="col-lg-4">
+
     </div>
 
     <div class="col-lg-4 ">
@@ -34,11 +34,12 @@
         </label>
         <br>
         <br>
-        <div class="g-recaptcha" data-sitekey="6LcRiVIUAAAAAOe4xg0T2fO9JkxrleYyHmq9hjd8"></div>
+        <div class="g-recaptcha" data-sitekey="6LcRiVIUAAAAAOe4xg0T2fO9JkxrleYyHmq9hjd8" align="center" ></div>
 
         <input type="submit" value="Submit" name="sub" class="btn btn-default center-block"> <br>
 
         <br>
+
         {% if is_response %}
         <text class="form-control" id="c1">{{genrated_url}}</text>
         <br>
@@ -47,14 +48,16 @@
             Copy Link
 
         </button>
-        {{site_name}}
 
-    </div>
-
-    <div class="col-lg-4">
-    </div>
 
     {% endif %}
+        </div>
+
+    <div class="col-lg-4">
+        <button type="button" class="btn btn-info center-block" onclick="location.href = '/stats.html';">Statistics</button>
+    </div>
+
+
 
 </form>
 

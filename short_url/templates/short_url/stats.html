@@ -1,0 +1,48 @@
+{% extends "short_url/headfoot.html" %}
+
+
+
+{% block content%}
+<div class="col-md-4">
+</div>
+<div class="col-md-4" id="mid" style="text-align:center;">
+    {% if post_or_not != 1 %}
+    <form Action="{% url 'short_url:stats' %}" method="post">
+        {%csrf_token%}
+    <hr style="border-width:6px; ">
+
+        <h4 style="color:#000099">Enter your URL to see Statistics:</h4>
+    <input name="entered_url" id="urlenter"  type="text" class="form-control" placeholder="Enter your short code" required>
+    <br>
+    <input type="submit" value="Show" name="sub" class="btn btn-info center-block">
+    <br>
+    <hr style="border-width:6px;">
+    </form>
+    {% else %}
+    <h3>Last 1 Month Statistics for your URL</h3>
+    <hr style="border-width:10px;">
+    <button type="button" class="btn btn-primary center-block">Hits <span class="badge">{{hits}}</span></button><br><br>
+    <h4 style="text-align:left;">Browsers</h4>
+    <hr style="border-width:6px;">
+    <div class="btn-group-vertical">
+    {% for element in bro_count %}
+        <button type="button" class="btn btn-primary center-block">{{element.browser}}
+            <span class="badge">{{element.total}}</span></button>
+    {% endfor %}
+    </div>
+    <br><br><br>
+    <h4 style="text-align:left;">Countries</h4>
+    <hr style="border-width:6px;">
+    <div class="btn-group-vertical">
+    {% for element in country_count %}
+        <button type="button" class="btn btn-primary center-block">{{element.country}}
+            <span class="badge">{{element.total}}</span></button>
+    {% endfor %}
+    </div>
+
+    {% endif %}
+</div>
+<div class="col-md-4">
+</div>
+{% endblock %}
+

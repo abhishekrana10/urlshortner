@@ -14,19 +14,21 @@
     {% endblock t_r %}
 </head>
 
-
-<body id="bodyheadfoot">
-    <div id="fixedheader">
-        Top div content
+<body>
+<div class="row">
+    <div class="col-sm-12" id="header" >
+        <h1 style="color:#000099">{{site_name}}</h1>
     </div>
+    <div class="col-sm-12"  style=" height:40px">
+    </div>
+</div>
+
 
     {% block content %}
 
     {% endblock %}
 
-    <div id="fixedfooter">
-        Bottom div content
-    </div>
+
 </body>
 
 </html>
